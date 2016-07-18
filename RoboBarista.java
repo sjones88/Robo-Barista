@@ -168,12 +168,9 @@ public class RoboBarista{
             String j = String.valueOf(i);
             orderNums.add(j);
         }
-        ArrayList<String> validInputs = new ArrayList<String>();
-        validInputs.add("q");
-        validInputs.add("r");
         
         Scanner scanner = new Scanner(System.in);
-        Character request = scanner.next().toLowerCase().charAt(0);
+        String request = scanner.next();
         if ( orderNums.contains(request) ) {
             String order = menu.get(Integer.parseInt(String.valueOf(request)) - 1);
             if ( isAvailable(order) ) {
@@ -189,7 +186,7 @@ public class RoboBarista{
             }
         } else if ( String.valueOf(request) == "q" ) {
             return;
-        } else if ( String.valueOf(request) == validInputs.get(1) ) {
+        } else if ( String.valueOf(request) == "r" ) {
             for ( String item : inventoryUnits.keySet() ) {
                 inventoryUnits.put(item, 10.0);
             }
@@ -213,3 +210,4 @@ public class RoboBarista{
         robo.runner();
      }
 }
+
